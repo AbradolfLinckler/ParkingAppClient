@@ -23,7 +23,10 @@ export default function Login(){
       setIsFetching(false);
       console.log(res.data.username);
       if(res.data.username==='null') setLoginError(true);
-      else window.location="/dashboard";
+      else {
+        localStorage.setItem("User",JSON.stringify(res.data));
+        window.location="/dashboard";
+      }
     } catch{
       
       console.log("There is an error!");

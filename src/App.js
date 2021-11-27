@@ -9,13 +9,16 @@ import {
   Link
 } from "react-router-dom";
 import Register from "./pages/register/Register";
+import TopBar from "./components/topbar/Topbar";
 // import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
+    <TopBar />
       <Routes>
         <Route exact path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register" element={<Register />} />
       </Routes>

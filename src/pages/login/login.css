@@ -8,8 +8,8 @@
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url("https://images.pexels.com/photos/1831744/pexels-photo-1831744.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: cover;
+    url("https://cdn.dribbble.com/users/533687/screenshots/3943446/mike-piechota-parkinglot.gif");
+  background-size:contain;
 }
 
 .loginTitle {
