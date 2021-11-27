@@ -12,6 +12,7 @@
     url("https://images.pexels.com/photos/1831744/pexels-photo-1831744.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-size: cover;
   justify-items: stretch;
+  overflow: auto;
 }
 
 .row{
@@ -69,6 +70,7 @@
   border: none;
   border-radius: 10px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .registerLoginButton {

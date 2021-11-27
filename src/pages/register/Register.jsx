@@ -18,6 +18,7 @@ export default function Register() {
   const [working, setWorking] = useState(false);
   const [notMatching, setNotMatching] = useState(false);
   const [empty,setEmpty] = useState(false);
+  const [usernameNA, setUsernameNA] = useState(false);
 
 
   const handleSubmit = async (e)=>{
@@ -27,8 +28,15 @@ export default function Register() {
     if(confPass!==password) setNotMatching(true);
     e.preventDefault();
     console.log(empty);
-    if(!empty||!notMatching) return 0;
-    try{
+    console.log(notMatching);
+    if(empty||notMatching) {
+      setEmpty(false);
+      setNotMatching(false);
+      return 0;
+    }
+    else{
+      try{
+        setUsernameNA(false);
         const res = await axios.post("http://localhost:8080/api/register",{
           firstName,
           lastName,
@@ -39,12 +47,16 @@ export default function Register() {
           mobileNumber,
           vehicleNumber
         });
-        res.data && window.location.replace("/login");
+        if(res.data.username==="na") setUsernameNA(true);
+        else window.location.replace("/login");
+        console.log(usernameNA);
+      }
+      catch(err){
+        setError(true);
+        console.log(err);
+      } 
     }
-    catch(err){
-      setError(true);
-      console.log(err);
-    } 
+    
   }
 
   return (
@@ -82,7 +94,7 @@ export default function Register() {
           onChange={e=>setConfPass(e.target.value)}
           />
         </div>
-        {notMatching ? <p className="err">*Password not matching!</p> : ``}
+        {notMatching && <p className="err">* Password not matching!</p>}
         <label>Residential Address</label>
         <input className="registerInput" type="text" placeholder="Enter your residential address..." 
         onChange={e=>setAddress(e.target.value)}
@@ -97,6 +109,7 @@ export default function Register() {
         />
         {error && <p className="err">* Username/Email already in use!</p>}
         {empty && <p className="err">* All fields are mandatory!</p>}
+        {usernameNA && <p className="err">* Username not available!</p>}
         <button className="registerButton" type="submit" >Register
         {working ? <i class="fa fa-spinner fa-spin"></i>: ``}
         </button>
