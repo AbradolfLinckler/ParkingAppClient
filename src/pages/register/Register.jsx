@@ -19,7 +19,9 @@ export default function Register() {
   const [notMatching, setNotMatching] = useState(false);
   const [empty,setEmpty] = useState(false);
   const [usernameNA, setUsernameNA] = useState(false);
-
+  const bookings = [];
+  const extraServices = [];
+  const cost = [];
 
   const handleSubmit = async (e)=>{
     setError(false);
@@ -37,7 +39,7 @@ export default function Register() {
     else{
       try{
         setUsernameNA(false);
-        const res = await axios.post("http://localhost:8080/api/register",{
+        const res = await axios.post("http://localhost:8080/user/register",{
           firstName,
           lastName,
           username,
@@ -45,7 +47,10 @@ export default function Register() {
           password,
           address,
           mobileNumber,
-          vehicleNumber
+          vehicleNumber,
+          bookings,
+          extraServices,
+          cost
         });
         if(res.data.username==="na") setUsernameNA(true);
         else window.location.replace("/login");

@@ -45,6 +45,7 @@
 
 .loginButton {
   margin-top: 20px;
+  margin-bottom: 20px;
   cursor: pointer;
   background-color: lightcoral;
   color: white;
@@ -69,4 +70,10 @@
   border: none;
   color: white;
   border-radius: 10px;
+}
+
+.g-signin{
+  margin-top: 10px;
+  background-color: blue;
+  text-align: center;
 }
