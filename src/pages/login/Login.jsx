@@ -75,7 +75,7 @@ export default function Login(){
         <button className="loginButton" type="submit" >
           Login
         </button>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId="g-client"
           className="g.signin"
           buttonText="Sign In"
@@ -88,7 +88,7 @@ export default function Login(){
                     clientId="rajma"
                     buttonText="Sign Out"
                     onLogoutSuccess={onGoogleLogout}
-                ></GoogleLogout>
+                ></GoogleLogout> */}
       </form>
       <button className="loginRegisterButton">
         <Link className="link" to="/register">Register</Link>

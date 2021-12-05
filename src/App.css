@@ -1,5 +1,20 @@
 .App {
   text-align: center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/3490393/pexels-photo-3490393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size:contain;
+}
+
+.AdminDashboard{
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/3490393/pexels-photo-3490393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size:contain;
 }
 
 .App-logo {

@@ -1,5 +1,5 @@
 import Login from "./pages/login/Login";
-import Dashboard from "./pages/dashboard/Dashboard";
+import UserDashboard from "./pages/userdashboard/UserDashboard";
 import './App.css';
 import { ReactDOM } from "react";
 import {
@@ -14,13 +14,15 @@ import AdminDashboard from "./pages/admindashboard/AdminDashboard";
 // import { Link } from 'react-router-dom';
 
 function App() {
+  const user=JSON.parse(localStorage.getItem("User"));
+  // console.log(user);
   return (
     <Router>
     <TopBar />
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/admindashboard" element={<AdminDashboard />} />
         <Route path="/register" element={<Register />} />
       </Routes>
