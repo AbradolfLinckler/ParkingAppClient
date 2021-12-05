@@ -90,9 +90,9 @@ export default function Login(){
                     onLogoutSuccess={onGoogleLogout}
                 ></GoogleLogout> */}
       </form>
-      <button className="loginRegisterButton">
+      {/* <button className="loginRegisterButton">
         <Link className="link" to="/register">Register</Link>
-      </button>
+      </button> */}
     </div>
   )
 }

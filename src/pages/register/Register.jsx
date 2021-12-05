@@ -119,9 +119,9 @@ export default function Register() {
         {working ? <i class="fa fa-spinner fa-spin"></i>: ``}
         </button>
       </form>
-      <button className="registerLoginButton">
+      {/* <button className="registerLoginButton">
         <Link to="/login" className="link">Login</Link>
-      </button>
+      </button> */}
     </div>
   )
 }

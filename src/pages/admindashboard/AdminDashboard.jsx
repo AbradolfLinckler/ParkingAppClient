@@ -12,6 +12,7 @@ export default function AdminDashboard() {
   const [workerName,setWorkerName]=useState("");
   const rating=0;
   const [workingSince, setWorkingSince]=useState(2000);
+  const [spaceNo, setSpaceNo] = useState(0);
 
   useEffect(()=>{
     const getWorkers=async()=>{
@@ -32,24 +33,30 @@ export default function AdminDashboard() {
   const addWorker= async ()=>{
     const name=workerName;
     const numOfRatings=0;
+    const space=spaceNo;
+    console.log(space);
     if(name==="") return;
     const res=await axios.post("http://localhost:8080/worker/add",{
       name,
       rating,
       numOfRatings,
-      workingSince
+      workingSince,
+      space
     });
-    console.log(res.data);
+    const spaceupdate=await axios.post("http://localhost:8080/space/addworker",res.data);
+    console.log(spaceupdate.data);
     window.location.reload(true);
   }
 
   const addSpace = async ()=>{
     const spaceNumber=spaces.length+1;
     const bookings=[];
+    const worker="";
     console.log("This is working!")
     console.log(spaceNumber);
     const res=await axios.post("http://localhost:8080/space/add",{
       spaceNumber,
+      worker,
       bookings
     });
     console.log(res.data);
@@ -79,6 +86,8 @@ export default function AdminDashboard() {
             <input onChange={e=>setWorkerName(e.target.value)} placeholder="Enter Worker Name..."/>
             <label>Working Since</label>
             <input onChange={e=>setWorkingSince(e.target.value)} placeholder="Enter joining year..." />
+            <label>Assigned to Slot No.</label>
+            <input onChange={e=>setSpaceNo(e.target.value)} placeholder="Enter corresponding slot..." />
             <button onClick={addWorker}>Add Worker</button>
           </form>
         </div>

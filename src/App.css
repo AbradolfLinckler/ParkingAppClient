@@ -8,7 +8,11 @@
   background-size:contain;
 }
 
-.AdminDashboard{
+UserDashboard{
+  min-height: 800px;
+}
+
+AdminDashboard{
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
