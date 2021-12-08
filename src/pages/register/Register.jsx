@@ -53,6 +53,7 @@ export default function Register() {
           cost
         });
         if(res.data.username==="na") setUsernameNA(true);
+        else if(confPass!==password) console.log("na");
         else window.location.replace("/login");
         console.log(usernameNA);
       }
